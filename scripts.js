@@ -1,5 +1,6 @@
 console.log('Hello there');
-favFoods = ['Steak','Sushi','Ramen','Salt and Vinegar Chips']
+let favFoods = ['Steak','Sushi','Ramen','Salt and Vinegar Chips']
+let employees = []
 
 // event #2
 $(document).ready(onReady);
@@ -13,6 +14,9 @@ function onReady() {
     //decendant selector
     $('#favoriteFoods').on('click', '.deleteBtn' , deleteFunc);
     $('#favoriteFoods').on('click', '.changeColor' , colorChange);
+    $('#submitForm').on('click', submitFormFunc); //event listener
+
+
     // using a forLoop to append an Array
     // let ulFoods = $('#favoriteFoods')
 //     for (let i = 0; i < favFoods.length; i++) {
@@ -28,6 +32,25 @@ function onReady() {
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function submitFormFunc() {
+    
+    // let name =  $('#name').val(); // .val(); is refered to as an getter  // setter .val('something');  // .text() is similar to the past to values
+    // let title = $('#title').val();
+
+    let employee = {
+        name: $('#name').val(),
+        title: $('#title').val()
+    }
+    employees.push(employee);
+    console.log('Submited:', employee);
+
+    $('#name').val('');
+    $('#title').val('');
+}
+
+// Grab input values and push it to an 
+
 
 function deleteFunc(){
     console.log('delete')
