@@ -1,6 +1,7 @@
 console.log('Hello there');
-let favFoods = ['Steak','Sushi','Ramen','Salt and Vinegar Chips']
-let employees = []
+let favFoods = ['Steak','Sushi','Ramen','Salt and Vinegar Chips'];
+let employees = [];
+let count = 0;
 
 // event #2
 $(document).ready(onReady);
@@ -15,7 +16,9 @@ function onReady() {
     $('#favoriteFoods').on('click', '.deleteBtn' , deleteFunc);
     $('#favoriteFoods').on('click', '.changeColor' , colorChange);
     $('#submitForm').on('click', submitFormFunc); //event listener
+    $('#counter').on('click', countUp);
 
+    $('#count').text(count);
 
     // using a forLoop to append an Array
     // let ulFoods = $('#favoriteFoods')
@@ -32,6 +35,14 @@ function onReady() {
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function countUp() {
+    // count = count + 1
+    count++;
+    $('#count').text(count);
+}
+
 
 function submitFormFunc() {
     
@@ -74,7 +85,8 @@ onReady();
 
 
 function buttonClicked() {
-    let ulFoods = $('#favoriteFoods')
+    let ulFoods = $('#favoriteFoods');
+    ulFoods.empty(); // Clears out UL to append a fresh list
     for (let i = 0; i < favFoods.length; i++) {
         ulFoods.append(`<li> One of my favorite foods is: ${favFoods[i]}! 
         <button class = "deleteBtn">DELETE</button>
